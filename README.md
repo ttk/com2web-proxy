@@ -10,4 +10,7 @@ The project is written in PHP and consists of two separate programs:
 
 # Installation
 
+
 You need to have php installed (preferrably 7.0+) and composer installed.  Then run `composer install` to download all the dependencies.
+
+You will also need the Direct IO php extension installed.  Download it from [the pecl site](https://pecl.php.net/package/dio/0.1.0/windows)
