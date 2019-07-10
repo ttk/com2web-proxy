@@ -5,8 +5,8 @@ a html page can read this data and act on them.
 
 The project is written in PHP and consists of two separate programs:
 
-`com2ip` - connects to a COM port and forwards the data to a local TCP port
-`ip2web` - Acts as the server.  Establishes listening ports for the raw TCP port and a WebSocket server.  This should be started first before anything else.
+- `com2ip` - connects to a COM port and forwards the data to a local TCP port
+- `ip2web` - Acts as the server.  Establishes listening ports for the raw TCP port and a WebSocket server.  This should be started first before anything else.
 
 # Installation
 
