@@ -1,0 +1,19 @@
+{
+    "name": "ttk/com2web-proxy",
+    "description": "A COM port to WebSocket proxy",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Tom Kaminski",
+            "email": "ttkaminski@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "MyApp\\": "src"
+    }
+},
+"require": {
+        "cboden/ratchet": "^0.4.1"
+    }
+}
