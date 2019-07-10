@@ -13,9 +13,11 @@ try {
     else throw new Exception("Invalid specified TCP port");
   }
 
+  system("mode COM{$com} BAUD=9600 PARITY=N DATA=8 STOP=1");
+
   $comPath = "\\\\.\\COM{$com}";
 
-  $file = fopen($comPath, "r+b");
+  $file = dio_open($comPath, O_RDWR);
   if (!$file) throw new Exception("Can't open COM$com port");
 
   $fp = stream_socket_client("tcp://127.0.0.1:$tcp_port");
@@ -24,11 +26,12 @@ try {
   print "All ports OPEN.  Proxying data.  Press CTRL-C to quit.\n";
 
   while (true) {
-    $data = fgets($file);
-    $data = preg_replace('#\s#','',$data);
-    if($data == '0') continue;  // Filter out 0, since we aren't interested in those
+    $data = dio_read($file,1);
     if ($data===false) break;
+    $data = preg_replace('#\s#','',$data);
+    if($data == '0' || $data == '') continue;  // Filter out 0, since we aren't interested in those
     fwrite($fp, $data);
+    print $data;
   }
 
   fclose($file);
